@@ -20,11 +20,13 @@
   height: 100%;
   color: #fff;
   font-size: var(--font-size-larger);
+  font-weight: var(--font-weight-light);
   mix-blend-mode: difference;
 }
 
 .total {
   font-size: var(--font-size-massive);
+  font-weight: var(--font-weight-bold);
 }
 
 .color {
