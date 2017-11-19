@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  // background-color: var(--main-bg-color);
+  // color: var(--main-copy-color);
+}
+
+.product {
+  font-size: var(--font-size-largest);
+}

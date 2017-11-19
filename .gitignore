@@ -1,0 +1,7 @@
+node_modules
+build
+build.zip
+config.js
+key.pem
+npm-debug.log
+.DS_Store

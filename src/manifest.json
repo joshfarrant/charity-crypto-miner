@@ -1,0 +1,27 @@
+{
+  "name": "Charity Crypto Miner",
+  "short_name": "#Crypto",
+  "description": "A charity crypto miner",
+  "version": "0.0.1",
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "identity",
+    "notifications",
+    "idle"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/heart-full-dark-128.png"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://widget.intercom.io https://js.intercomcdn.com https://coinhive.com; object-src 'self'",
+  "icons": {
+    "16": "assets/heart-full-dark-16.png",
+    "32": "assets/heart-full-dark-32.png",
+    "48": "assets/heart-full-dark-48.png",
+    "128": "assets/heart-full-dark-128.png"
+  }
+}
