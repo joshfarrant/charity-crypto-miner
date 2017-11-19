@@ -64,7 +64,7 @@ export default class App extends Component {
         <div styleName="bottom">
           <WaveyTotal
             total={`£${totalRaised}`}
-            message="Raised In Total"
+            message="Raised in total"
           />
         </div>
       </div>
