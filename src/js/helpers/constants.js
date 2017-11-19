@@ -37,7 +37,3 @@ export const ICONS = {
 export const PRODUCT = {
   NAME: 'Project Badger',
 };
-
-export const REACT_CHROME_REDUX = {
-  PORT_NAME: 'charity-crypto-miner',
-};

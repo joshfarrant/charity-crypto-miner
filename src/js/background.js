@@ -1,22 +1,10 @@
-/* global CoinHive:true navigator:true */
+/* global CoinHive:true navigator:true localStorage:true */
 
-import { wrapStore } from 'react-chrome-redux';
 import {
   COINHIVE,
   DEFAULT_CHARITY,
   ICONS,
-  REACT_CHROME_REDUX,
 } from './helpers/constants';
-import { state as stateActions } from './actions';
-import store from './store/index';
-
-wrapStore(store, {
-  portName: REACT_CHROME_REDUX.PORT_NAME,
-});
-
-const {
-  dispatch,
-} = store;
 
 let miner;
 
@@ -35,10 +23,16 @@ const setIcon = (iconPath) => {
 setIcon(icons.default);
 
 const toggleMining = () => {
-  if (!miner) return;
-  miner.isRunning() ? miner.stop() : miner.start();
+  if (!miner) return false;
+
+  if (miner.isRunning()) {
+    miner.stop();
+  } else {
+    miner.start();
+  }
+
   return miner.isRunning();
-}
+};
 
 const setMinerUser = (user) => {
   if (miner && Object.hasOwnProperty.call(miner, 'stop')) {
@@ -46,7 +40,7 @@ const setMinerUser = (user) => {
   }
   miner = new CoinHive.User(COINHIVE.KEY, user);
   miner.start();
-}
+};
 
 if (!localStorage.getItem('charity')) {
   localStorage.setItem('charity', DEFAULT_CHARITY.value);
@@ -134,15 +128,13 @@ if (CoinHive) {
   // To be used from inspector
   window.getMiner = () => miner;
 } else {
+  // eslint-disable-next-line no-console
   console.error('CoinHive is not defined');
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   const { type } = request;
-  if (type === 'CLEAR_STATE') {
-    dispatch(stateActions.clear());
-    sendResponse({ ok: true });
-  } else if (type === 'GET_MINER_STATUS') {
+  if (type === 'GET_MINER_STATUS') {
     const isMining = miner.isRunning();
     sendResponse({ isMining });
   } else if (type === 'TOGGLE_MINING') {

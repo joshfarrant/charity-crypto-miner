@@ -6,7 +6,7 @@
     "build": "NODE_ENV=production node utils/build.js",
     "lint": "eslint --ext .js --ext .jsx src/js",
     "start": "node utils/webserver.js",
-    "precommit": "echo -e 'LINT!'",
+    "precommit": "npm run lint",
     "postversion": "git push && git push --tags",
     "package": "npm run build && zip -r build.zip build"
   },
@@ -14,17 +14,11 @@
     "deep-freeze": "0.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
-    "react-chrome-redux": "^1.4.0",
     "react-dom": "^16.1.1",
     "react-dom-confetti": "^0.0.8",
     "react-icons": "^2.2.7",
-    "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "react-select": "^1.0.0-rc.10",
-    "redux": "^3.7.2",
-    "redux-localstorage": "^0.4.1",
-    "redux-logger": "^3.0.6",
-    "redux-saga": "^0.16.0"
+    "react-select": "^1.0.0-rc.10"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
