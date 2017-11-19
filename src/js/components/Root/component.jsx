@@ -1,17 +1,13 @@
 import React from 'react';
 import App from '../App';
+import Wave from '../Wave';
 import './style.scss';
 
-const Root = () => (
+export default () => (
   <div
     styleName="base-theme"
   >
-    <div styleName="ocean">
-      <div styleName="wave" />
-      <div styleName="wave" />
-    </div>
+    <Wave />
     <App />
   </div>
 );
-
-export default Root;
