@@ -1,3 +1,9 @@
+export const ENVIRONMENT = {
+  PRODUCTION: process.env.NODE_ENV === 'production',
+  DEVELOPMENT: process.env.NODE_ENV === 'development',
+  TESTING: process.env.NODE_ENV === 'testing',
+};
+
 export const CHARITIES = [
   {
     value: 'cystic-fibrosis-trust',
@@ -11,16 +17,16 @@ export const CHARITIES = [
   },
 ];
 
-export const COINHIVE = {
-  KEY: 'MDdqOmiuWp7A8trrbJ6FAU9vLIUfIl9k',
-};
-
 export const DEFAULT_CHARITY = CHARITIES[0];
 
-export const ENVIRONMENT = {
-  PRODUCTION: process.env.NODE_ENV === 'production',
-  DEVELOPMENT: process.env.NODE_ENV === 'development',
-  TESTING: process.env.NODE_ENV === 'testing',
+export const COINHIVE = {
+  DEV_KEY: 'MDdqOmiuWp7A8trrbJ6FAU9vLIUfIl9k',
+  PROD_KEY: '8RFcSByW7dVF3vKnKk58gkM5I5shRCcP',
+  get KEY() {
+    return ENVIRONMENT.PRODUCTION
+      ? COINHIVE.PROD_KEY
+      : COINHIVE.DEV_KEY;
+  },
 };
 
 export const ICONS = {
@@ -29,8 +35,8 @@ export const ICONS = {
 };
 
 export const PRODUCT = {
-  NAME: 'Project Badger'
-}
+  NAME: 'Project Badger',
+};
 
 export const REACT_CHROME_REDUX = {
   PORT_NAME: 'charity-crypto-miner',
